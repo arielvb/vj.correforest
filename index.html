@@ -1,0 +1,44 @@
+<!doctype html>
+<head>
+	<meta charset="utf-8">
+	<title>Corre Forest (fork)</title>
+
+	<style type="text/css" media="screen">
+	.controls{
+		width: 497px;
+		color: white;
+		padding: 3px;
+		background:#000;
+	}
+	#correforest-speed{
+		float:left;
+	}
+	#correforest-lives{
+		float:right;
+	}
+
+	</style>
+	<script src="correforest.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+
+
+
+		 window.onload = function(){
+				corre = new CorreForest()
+				corre.init('correforest', 'correforest-menubar');
+		}
+	</script>
+</head>
+<body>
+	<div style="width:500px; margin:auto">
+		<div class="controls">
+		<div id="correforest-menubar">
+		</div>
+		<div style="clear:both"></div>
+		</div>
+		<canvas id="correforest" width="500px" height="600px" style="border:solid gray 1px;">
+
+		</canvas>
+	</div>
+	<div style="text-align:center">Original idea from: <a href="http://www.lsi.upc.edu/~jalonso/vj/">http://www.lsi.upc.edu/~jalonso/vj/</a></div>
+</body>
