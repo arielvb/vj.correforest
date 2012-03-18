@@ -1,44 +1,100 @@
 <!doctype html>
 <head>
 	<meta charset="utf-8">
-	<title>Corre Forest (fork)</title>
+	<title>Corre Forest</title>
 
 	<style type="text/css" media="screen">
-	.controls{
-		width: 497px;
-		color: white;
+	body{
+		background-color:lightgray;
+	}
+	#correforest .menu{
+		color: #FFF;
 		padding: 3px;
 		background:#000;
+		font-size:14px;
+		font-family:arial;
 	}
-	#correforest-speed{
+	#correforest .menu .speed{
 		float:left;
+		margin-left:10px;
+		color:#FFFF55;
+		width:120px;
 	}
-	#correforest-lives{
+	#correforest .menu .lives{
 		float:right;
+		color:#FF0000;
+		width:100px;
+		text-align:right;
+	}
+	#correforest .menu .counter{
+		text-align: center;
+	}
+	#correforest .display{
+		z-index: 10;
+			text-align: center;
+			position: absolute;
+			top: 45%;
+			left: 42%;
+			background: #000;
+			color: #FFF;
+			padding: 10px;
+			opacity: 0.7;
+	}
+	#correforest canvas{
+		clear:both;
 	}
 
 	</style>
 	<script src="correforest.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
-
-
-
+		var CorreForestConfig =  {
+			// Container
+			wrapper: 'correforest',
+			// Keys Codes
+			keys: {left : 37, down: 40, right: 39, up: 38, pause: 32},
+			// Player position
+			position: {x: 23, y : 4},
+			// Speed and lives
+			speed: {max: 10, min: 1},
+			lives: 4,
+			// Road width (pixels)
+			road: 100,
+			// Colors
+			colors : {
+				trees: '#103406',
+				road: '#15581a',
+				player: {outside: '#6E440B', inside: '#3E2608'}
+			},
+			strings: {
+				start: '<strong>New game</strong><br/>Press &lt;space&gt; to start',
+				pause: '<strong>Paused</strong><br/>Press &lt;space&gt; to continue',
+				gameover: '<strong>Gameover</strong><br/>Press &lt;space&gt; to restart'
+			},
+			// Start playing onload
+			autoplay: false
+		};
 		 window.onload = function(){
-				corre = new CorreForest()
-				corre.init('correforest', 'correforest-menubar');
+				corre = new CorreForest(CorreForestConfig)
+
 		}
 	</script>
 </head>
 <body>
-	<div style="width:500px; margin:auto">
-		<div class="controls">
-		<div id="correforest-menubar">
-		</div>
-		<div style="clear:both"></div>
-		</div>
-		<canvas id="correforest" width="500px" height="600px" style="border:solid gray 1px;">
-
-		</canvas>
+	<!-- wrapper -->
+	<div style="width:500px; margin:auto" id="correforest" tabindex="1"></div>
+	<div style="text-align:center; font-style: italic; clear:both">
+		Original idea from: <a href="http://www.lsi.upc.edu/~jalonso/vj/">http://www.lsi.upc.edu/~jalonso/vj/</a>
 	</div>
-	<div style="text-align:center">Original idea from: <a href="http://www.lsi.upc.edu/~jalonso/vj/">http://www.lsi.upc.edu/~jalonso/vj/</a></div>
+	<a href="http://github.com/arielvb/vj.correforest"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/abad93f42020b733148435e2cd92ce15c542d320/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub"></a>
 </body>
+<script type="text/javascript">//<![CDATA[
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount','UA-25715218-1']);
+	_gaq.push(['_trackPageview'],['_trackPageLoadTime']);
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+	//]]>
+</script>
