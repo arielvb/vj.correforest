@@ -18,7 +18,7 @@
 		float:left;
 		margin-left:10px;
 		color:#FFFF55;
-		width:120px;
+		width:220px;
 	}
 	#correforest .menu .lives{
 		float:right;
@@ -47,15 +47,23 @@
 	</style>
 	<script src="correforest.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
+		function getDocHeight() {
+		    var D = document;
+		    return Math.max(
+		        Math.max(D.body.scrollHeight, D.documentElement.scrollHeight),
+		        Math.max(D.body.offsetHeight, D.documentElement.offsetHeight),
+		        Math.max(D.body.clientHeight, D.documentElement.clientHeight)
+		    );
+		}
 		var CorreForestConfig =  {
 			// Container
 			wrapper: 'correforest',
 			// Keys Codes
 			keys: {left : 37, down: 40, right: 39, up: 38, pause: 32},
 			// Player position
-			position: {x: 23, y : 4},
+			position: {x: 'middle', y : 4},
 			// Speed and lives
-			speed: {max: 10, min: 1},
+			speed: {max: 18, min: 4},
 			lives: 4,
 			// Road width (pixels)
 			road: 100,
@@ -74,18 +82,31 @@
 			autoplay: false
 		};
 		 window.onload = function(){
-				corre = new CorreForest(CorreForestConfig)
-
+		 		CorreForestConfig.height = getDocHeight() - document.body.offsetHeight - 75;
+				CorreForestConfig.width = window.innerWidth - 16;
+				corre = new CorreForest(CorreForestConfig);
 		}
 	</script>
 </head>
 <body>
 	<!-- wrapper -->
-	<div style="width:500px; margin:auto" id="correforest" tabindex="1"></div>
+	<div style="" id="correforest"></div>
+
+	<audio loop="loop" >
+		<source src="piratesplunge.ogg" type="audio/ogg" media="all">
+		<source src="piratesplunge_128.mp3" type="audio/mp3" media="all">
+	</audio>
+	<audio>
+		<!-- Firefox doesn't play mp3, and blackberry doesn't play ogg -->
+		<source src="punch_or_whack.ogg" type="audio/ogg" media="all">
+		<source src="punch_or_whack.mp3" type="audio/mp3" media="all">
+	</audio>
+
 	<div style="text-align:center; font-style: italic; clear:both">
-		Original idea from: <a href="http://www.lsi.upc.edu/~jalonso/vj/">http://www.lsi.upc.edu/~jalonso/vj/</a>
+		Original idea from: <a href="http://www.lsi.upc.edu/~jalonso/vj/">http://www.lsi.upc.edu/~jalonso/vj/</a><br/>
+		<small>Music by http://wrathgames.com/blog [WrathGames Studio]</small>
 	</div>
-	<a href="http://github.com/arielvb/vj.correforest"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/abad93f42020b733148435e2cd92ce15c542d320/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub"></a>
+	<a href="https://github.com/you"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
 </body>
 <script type="text/javascript">//<![CDATA[
 	var _gaq = _gaq || [];
